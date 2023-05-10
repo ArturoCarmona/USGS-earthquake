@@ -1,0 +1,21 @@
+body {
+  position: relative;
+  min-height: 100vh;
+  margin: 0px;
+  padding: 0px;
+
+  justify-content: center;
+  text-align: center;
+  /* background: rgb(34, 172, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 172, 195, 1) 0%,
+    rgba(103, 63, 213, 1) 100%
+  ); */
+  background: rgb(34, 172, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 172, 195, 1) 0%,
+    rgba(104, 232, 71, 1) 100%
+  );
+}

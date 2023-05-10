@@ -1,0 +1,30 @@
+@media (max-width: 912px) {
+  #home {
+    margin-top: 50%;
+  }
+}
+@media (min-width: 913px) {
+  #home {
+    margin-top: 25%;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+#item-list-home {
+  text-decoration: none;
+  color: rgb(167, 20, 167);
+}
+
+#item-list-home:hover {
+  color: red;
+}
+
+#home-text {
+  text-align: justify;
+  padding-right: 15%;
+  padding-left: 15%;
+  font-family: sans-serif;
+}
