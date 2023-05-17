@@ -1,6 +1,6 @@
 import { LitElement, html, css } from "lit-element";
 import "./ArcGIS-Map";
-import Img404 from "../assets/img/Error 404.png";
+import Img404 from "../assets/img/404.png";
 
 export class USGSEarthquake extends LitElement {
   static get properties() {
