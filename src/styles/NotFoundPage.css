@@ -1,0 +1,17 @@
+#div-not-found {
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  #img-not-found {
+    width: 100px;
+    height: 90px;
+  }
+}
+
+@media (min-width: 577px) {
+  #img-not-found {
+    width: 500px;
+    height: 400px;
+  }
+}

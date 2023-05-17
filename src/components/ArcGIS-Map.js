@@ -137,8 +137,6 @@ export class ArcGISMap extends LitElement {
       this.coordinates = [-102.552784, 23.634501];
     }
     const coor = this.coordinates;
-    console.log(this.zoom);
-    console.log(coor[0]);
     const view = new MapView({
       map: map,
       center: [coor[0], coor[1]],
@@ -176,7 +174,6 @@ export class ArcGISMap extends LitElement {
     return html` <div>
       <div class="container">
         <button @click=${this.getMap} id="btn-map"><strong>Map</strong></button>
-        <!-- <div id="map-content"></div> -->
         <dialog id="modal">
           <div id="map-content"></div>
           <button @click=${this.closeModal} id="btn-close">
