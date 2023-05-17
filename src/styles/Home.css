@@ -1,12 +1,8 @@
-@media (max-width: 912px) {
-  #home {
-    margin-top: 50%;
-  }
-}
-@media (min-width: 913px) {
-  #home {
-    margin-top: 25%;
-  }
+#home {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 ul {
@@ -24,7 +20,5 @@ ul {
 
 #home-text {
   text-align: justify;
-  padding-right: 15%;
-  padding-left: 15%;
   font-family: sans-serif;
 }

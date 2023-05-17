@@ -29,7 +29,7 @@ export class USGSEarthquake extends LitElement {
       }
       @media (min-width: 913px) {
         #div-search-data {
-          margin-top: 25%;
+          margin-top: 15%;
         }
       }
       #div-table {
@@ -80,6 +80,13 @@ export class USGSEarthquake extends LitElement {
       }
       label {
         font-family: arial, sans-serif;
+      }
+      #myInput {
+        font-family: arial, sans-serif;
+        border: 2px solid black;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
       #input-date {
         font-family: arial, sans-serif;
@@ -177,26 +184,39 @@ export class USGSEarthquake extends LitElement {
     this.requestUpdate();
   }
 
-  SearchTable() {
-    let filter, found, table, tr, td, i, j;
-    let input = this.shadowRoot.querySelector("#myInput");
-    filter = input.value.toUpperCase();
-    table = this.shadowRoot.querySelector("#myTable");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td");
-      for (j = 0; j < td.length; j++) {
-        if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-          found = true;
+  updated(changedProperties) {
+    super.updated(changedProperties);
+
+    if (changedProperties.has("errorData") && !this.errorData) {
+      this.searchTable();
+    }
+  }
+
+  searchTable() {
+    const table = this.shadowRoot.querySelector("#myTable");
+
+    // Filtrar los datos de la tabla según la consulta de búsqueda
+    const filterData = () => {
+      const rows = table.tBodies[0].rows;
+
+      for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        const rowData = row.textContent.toLowerCase();
+
+        if (rowData.includes(this.searchQuery.toLowerCase())) {
+          row.style.display = "";
+        } else {
+          row.style.display = "none";
         }
       }
-      if (found) {
-        tr[i].style.display = "";
-        found = false;
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
+    };
+
+    // Asignar evento de cambio a la barra de búsqueda
+    const searchInput = this.shadowRoot.querySelector("#myInput");
+    searchInput.addEventListener("input", () => {
+      this.searchQuery = searchInput.value;
+      filterData();
+    });
   }
 
   changeOption(e) {
@@ -268,10 +288,10 @@ export class USGSEarthquake extends LitElement {
             <arcgis-map .URL_USGS=${this.URL_USGS}></arcgis-map>
             <div id="search-table">
               <label><strong>Search</strong></label>
-              <input type="text" id="myInput" @keyup=${this.SearchTable} />
+              <input type="text" id="myInput" placeholder="Search..." />
             </div>
 
-            <table class="table">
+            <table class="table" id="myTable">
               <thead>
                 <tr>
                   <th>Id</th>
@@ -280,7 +300,7 @@ export class USGSEarthquake extends LitElement {
                   <th>View</th>
                 </tr>
               </thead>
-              <tbody id="myTable">
+              <tbody>
                 ${this.data.map((item) => {
                   return html`
                     <tr>

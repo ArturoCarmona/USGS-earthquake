@@ -32,8 +32,12 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Features
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="https://i-am-ing-arturogc.netlify.app/"
+                >
+                  Portafolio web
                 </a>
               </li>
             </ul>
