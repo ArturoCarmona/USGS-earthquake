@@ -124,7 +124,7 @@ export class ArcGISMap extends LitElement {
 
     /* === MAP === */
     const API_KEY =
-      "AAPKfc7b189f70fb41499b4d7a6a03651b81rHnrb9zDNgOCG7VoX1_7eaIzazH01CyFqzU-YyGsw0CmTRPu4_ihVFyY6SoA9r5m";
+      "AAPKbd7859203a4b4bddbe35e6a8d9f2e242D4hQlpWKhcKcBDzo_jsxK8X9xEeN1pDQI_a49H_YzJz1G34QYtEDkw657uj0xKmy";
     config.apiKey = API_KEY;
 
     const map = new Map({

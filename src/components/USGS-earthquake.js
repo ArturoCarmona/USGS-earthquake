@@ -284,8 +284,7 @@ export class USGSEarthquake extends LitElement {
                 <strong>New search</strong>
               </button>
             </div>
-            <h3>Map complete</h3>
-            <arcgis-map .URL_USGS=${this.URL_USGS}></arcgis-map>
+
             <div id="search-table">
               <label><strong>Search</strong></label>
               <input type="text" id="myInput" placeholder="Search..." />
